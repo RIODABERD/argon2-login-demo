@@ -1,6 +1,8 @@
-# argon2-login-demo
+# Argon2 Secure Login Demo
 
-> This program demonstrates the capabilities of Argon2 Password Hashing in Python (Interactive CLI).
+This program demonstrates the capabilities of Argon2 Password Hashing in Python (Interactive CLI).
+
+---
 
 ## Features
 
@@ -52,8 +54,6 @@ login-cli-argon2/
 
 - Passwords are hashed using Argon2
 - No plaintext passwords stored
-- SQLite with prepared statements prevents SQL injection
-- Input validation
 - Password confirmation during registration
 
 ## Development Notes
@@ -61,3 +61,13 @@ login-cli-argon2/
 - Database is created automatically on first run
 - `database.db` should be in `.gitignore` (not committed)
 - Always run through `main.py`
+
+---
+
+## Roadmap & Planned Features
+
+This demo is actively being developed. The following features are planned for the next major release, allowing deeper configuration and security testing:
+
+- **Interactive CLI Configuration:** Implementing support for cost parameters `time-cost`, `parallelism`. And general password settings such as `special characters`, `password limits`, `login attempts`.
+- **Logging:** Integration of the standard Python `logging` module with a configurable verbosity level.
+- **Password Visibility Toggle:** Adding a `show-password` flag to control `getpass()` for debugging purposes.
