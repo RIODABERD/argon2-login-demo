@@ -1,6 +1,6 @@
 # argon2-login-demo
 
-> This program demonstrates the capabilities of Argon2 Password Hashing in Python.
+> This program demonstrates the capabilities of Argon2 Password Hashing in Python (Interactive CLI).
 
 ## Features
 
