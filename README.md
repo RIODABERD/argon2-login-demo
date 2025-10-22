@@ -39,9 +39,9 @@ python main.py
 
 ```
 login-cli-argon2/
-├── main.py           # Entry point - run this file
+├── main.py          # Entry point - run this file
 ├── src/
-│   ├── __init__.py
+│   ├── __init__.py  # Initialize database (if non-existent)
 │   ├── auth.py      # Authentication logic
 │   └── db.py        # Database operations
 ├── requirements.txt
