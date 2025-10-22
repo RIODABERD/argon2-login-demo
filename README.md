@@ -23,12 +23,12 @@ git clone https://github.com/RIODABERD/argon2-login-demo.git
 cd argon2-login-demo
 ```
 
-3. Install required packages:
+2. Install required packages:
 ```bash
 pip install argon2-cffi
 ```
 
-4. Run the program:
+3. Run the program:
 ```bash
 python main.py
 ```
