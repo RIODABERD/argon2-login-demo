@@ -68,6 +68,6 @@ login-cli-argon2/
 
 This demo is actively being developed. The following features are planned for the next release, allowing deeper configuration and security testing:
 
-- **Interactive CLI Configuration:** Implementing support for cost parameters `time-cost`, `parallelism`. And general password settings such as `special characters`, `password limits`, `login attempts`.
+- **Interactive CLI Configuration:** Implementing support for modifying cost parameters like `time-cost`, `parallelism`. And general password settings such as `special characters`, `password limits`, `login attempts`.
 - **Logging:** Integration of the standard Python `logging` module with a configurable verbosity level.
 - **Password Visibility Toggle:** Adding a `show-password` flag to control `getpass()` for debugging purposes.
