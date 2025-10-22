@@ -19,41 +19,45 @@ def main():
             case "2": # Register
                 create_user()
             case "3": # Exit
-                print("Exiting program.")
+                print("\nExiting program...")
                 sys.exit(0)
             case _:
                 print("Invalid option. Please try again.")
 
 def login():
+    print("\nLogin"
+    "\n----------------------------------------------")
     username = input("Username: ")
     password = getpass.getpass("Password: ")
     success = authenticate(DB, username, password)
     if success:
-        print("Login successful!")
+        print("\n[✔]Login successful!")
     else:
-        print("Login failed. Incorrect username or password.")
+        print("\n[✖]Login failed. Incorrect username or password.")
 
 def create_user():
+    print("\nCreate an Account"
+    "\n----------------------------------------------")
     username = input("Choose a username: ")
 
     while True: # Prompt for password until valid
         password = getpass.getpass("Choose a password: ")
         if not password: # Check for empty password
-            print("Password cannot be empty. Please try again.")
+            print("\n[✖]Password cannot be empty. Please try again.")
             continue
 
         if password != (confirm_password := getpass.getpass("Confirm password: ")): # Check for match
-            print("Passwords do not match. Please try again.")
+            print("\n[✖]Passwords do not match. Please try again.")
             continue
         break # Exit loop if password is valid
 
     try:
         register(DB, username, password)
-        print(f"User {username} created successfully.")
+        print(f"\n[✔]User {username} created successfully.")
     except UsernameDuplicateError: # Catch duplicate username
-        print(f"Error: Username {username} already exists.")
+        print(f"\n[✖]Error: Username {username} already exists.")
     except ValueError as e: # Catch other registration errors
-        print(f"Error creating user: {e}")
+        print(f"\n[✖]Error creating user: {e}")
 
 if __name__ == "__main__":
     init_db(DB)   # create database if it doesn't exist

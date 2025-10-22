@@ -38,7 +38,7 @@ def register(db: str, username: str, password: str) -> int:
             cursor.execute("INSERT INTO users (username, password) VALUES (?, ?)", (username, hashed_password))
             return cursor.lastrowid
     except sqlite3.IntegrityError: # Catch duplicate username
-        raise UsernameDuplicateError(f"Username {username} already exists.")
+        raise UsernameDuplicateError
     
 
 if __name__ == "__main__":
