@@ -64,9 +64,9 @@ login-cli-argon2/
 
 ---
 
-## Roadmap & Planned Features
+## Planned Features
 
-This demo is actively being developed. The following features are planned for the next major release, allowing deeper configuration and security testing:
+This demo is actively being developed. The following features are planned for the next release, allowing deeper configuration and security testing:
 
 - **Interactive CLI Configuration:** Implementing support for cost parameters `time-cost`, `parallelism`. And general password settings such as `special characters`, `password limits`, `login attempts`.
 - **Logging:** Integration of the standard Python `logging` module with a configurable verbosity level.
