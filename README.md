@@ -1,3 +1,6 @@
+# argon2-cli-login-demo
+A program for demonstrating the capabilities of Argon2 Password Hashing as a secure login system.
+
 > This program will only be demonstrating the capabilities of Argon2 Password Hashing in Python.
 
 - must open main.py
