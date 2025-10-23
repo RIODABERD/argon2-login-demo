@@ -1,9 +1,13 @@
-# This module handles user authentication and registration using Argon2 for password hashing.
-
+# This module handles user authentication and registration using Argon2 for password hashing
+import src.settings
 from argon2 import PasswordHasher
 import sqlite3
 
-ph = PasswordHasher()
+ph = PasswordHasher(
+    time_cost=src.settings.parse_arguments().time_cost,
+    parallelism=src.settings.parse_arguments().parallelism,
+    memory_cost=src.settings.parse_arguments().memory_cost
+)
 
 class UsernameDuplicateError(Exception):
     pass
@@ -28,8 +32,7 @@ def register(db: str, username: str, password: str) -> int:
 
     hashed_password = ph.hash(password) # hash the password using Argon2
 
-    # for debugging purposes you can uncomment the next line, but avoid printing hashes in production
-    # print(f"User {username} registered with hashed password: {hashed_password}")
+    src.settings.show_hash(username, hashed_password)
 
     # store the hashed password and username in the database
     try:

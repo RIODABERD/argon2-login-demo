@@ -45,7 +45,8 @@ login-cli-argon2/
 ├── src/
 │   ├── __init__.py  # Initialize database (if non-existent)
 │   ├── auth.py      # Authentication logic
-│   └── db.py        # Database operations
+│   ├── db.py        # Database operations
+│   └── settings.py  # Password hashing configurations
 ├── requirements.txt
 └── database.db      # Created on first run
 ```
@@ -68,6 +69,6 @@ login-cli-argon2/
 
 This demo is actively being developed. The following features are planned for the next release, allowing deeper configuration and security testing:
 
-- **Interactive CLI Configuration:** Implementing support for modifying cost parameters like `time-cost`, `parallelism`. And general password settings such as `special characters`, `password limits`, `login attempts`.
+[✔] **Argumentative Configuration:** Implementing support for modifying cost parameters like `--time-cost`, `--parallelism`. And general password settings such as `special characters`, `password limits`.
 - **Logging:** Integration of the standard Python `logging` module with a configurable verbosity level.
-- **Password Visibility Toggle:** Adding a `show-password` flag to control `getpass()` for debugging purposes.
+[✔] **Password Visibility Toggle:** Adding a `--show-password` flag to control `getpass()` for debugging purposes.

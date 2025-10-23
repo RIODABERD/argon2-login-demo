@@ -1,16 +1,22 @@
-import getpass
 import sys
+from src.settings import parse_arguments, get_input
 from src.__init__ import init_db
 from src.auth import UsernameDuplicateError, authenticate, register
 
 DB = "database.db"
 
-def main():
+def main(): # Main program loop
     while True:
-        print("\nLogin System Demo w/ Argon2 Password Hashing\n" 
-        "----------------------------------------------" 
+        print("\nArgon2 Password Hashing CLI"
+        "\n----------------------------------------------"
+        f"\nTime Cost (T): {parse_arguments().time_cost}"
+        f"\nParallelism (P): {parse_arguments().parallelism}"
+        f"\nMemory Cost (M): {parse_arguments().memory_cost} KiB"
+        f"\nShow password: {parse_arguments().show_password}"
+        f"\nShow hash: {parse_arguments().show_hash}"
+        "\n----------------------------------------------" 
         "\n1. Login" 
-        "\n2. Register" 
+        "\n2. Register"
         "\n3. Exit")
         choice = input("Select an option: ")
         match choice:
@@ -24,11 +30,11 @@ def main():
             case _:
                 print("Invalid option. Please try again.")
 
-def login():
+def login(): # Login function
     print("\nLogin"
     "\n----------------------------------------------")
     username = input("Username: ")
-    password = getpass.getpass("Password: ")
+    password = get_input("Password: ", is_secret=parse_arguments().show_password) # Get password input (hidden if not show_password)
     success = authenticate(DB, username, password)
     if success:
         print("\n[✔]Login successful!")
@@ -41,12 +47,12 @@ def create_user():
     username = input("Choose a username: ")
 
     while True: # Prompt for password until valid
-        password = getpass.getpass("Choose a password: ")
+        password = get_input("Password: ", is_secret=parse_arguments().show_password) # Get password input (hidden if not show_password)
         if not password: # Check for empty password
             print("\n[✖]Password cannot be empty. Please try again.")
             continue
 
-        if password != (confirm_password := getpass.getpass("Confirm password: ")): # Check for match
+        if password != (confirm_password := get_input("Confirm Password: ", is_secret=parse_arguments().show_password)): # Check for match
             print("\n[✖]Passwords do not match. Please try again.")
             continue
         break # Exit loop if password is valid
