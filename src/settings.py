@@ -18,14 +18,14 @@ def parse_arguments(): # Creates an argument parser for options
         '--time-cost',
         type=int,
         default=DEFAULT_TIME_COST,
-        help=f"Sets the Argon2 time cost (T). Must be a positive integer between 1 and 10\nDefault value: {DEFAULT_TIME_COST}"
+        help=f"Sets the Argon2 time cost (T). Must be a positive integer between 1 and 10.\nDefault value: {DEFAULT_TIME_COST}"
     )
 
     parser.add_argument( # Parallelism argument. Default Value is 4
         '--parallelism',
         type=int,
         default=DEFAULT_PARALLELISM,
-        help=f"Sets the Argon2 parallelism (P). Must be a positive integer between 1 and 16\nDefault value: {DEFAULT_PARALLELISM}"
+        help=f"Sets the Argon2 parallelism (P). Must be a positive integer between 1 and 16.\nDefault value: {DEFAULT_PARALLELISM}"
     )
 
     parser.add_argument( # Memory Cost argument. Default Value is 65536 KiB (64 MiB)

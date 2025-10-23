@@ -37,6 +37,23 @@ python main.py
 
 **Important**: Always run the program through `main.py`, not the individual modules.
 
+## Configuration & Usage
+
+The application is designed as a Command-Line Interface (CLI). All security parameters and developer tools are exposed via command-line arguments
+
+To configure, simply pass the desired argument and value when running `main.py`.
+(i.e `python main.py --timecost 5 --parallelism 12 --memory-cost 64000 --show-password --show-hash`)
+
+| flags             | type   | default | description                                                                               |
+| ----------------- | ------ | ------- | ----------------------------------------------------------------------------------------- |
+| `--time-cost`     | `int`  | `3`     | Sets the Argon2 time cost (T). Must be a positive integer between 1 and 10.               |
+| `--parallelism`   | `int`  | `4`     | Sets the Argon2 parallelism (P). Must be a positive integer between 1 and 16              |
+| `--memory-cost`   | `int`  | `65536` | Sets the Argon2 memory cost (M) in kibibytes. Must be a positive integer.                 |
+| `--show-password` | `flag` | `False` | If set, passwords will be shown in plaintext when typed (for debugging purposes).         |
+| `--show-hash`     | `flag` | `False` | If set, the hashed password will be displayed upon registration (for debugging purposes). |
+
+
+
 ## Project Structure
 
 ```
